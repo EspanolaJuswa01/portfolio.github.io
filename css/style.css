@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #1355FF;
+    --primary: #000670;
     --light: #1355FF;
     --dark: #202942;
 }
@@ -27,7 +27,6 @@
     bottom: 45px;
     z-index: 99;
 }
-
 .my-6 {
     margin-top: 6rem;
     margin-bottom: 6rem;
@@ -119,7 +118,7 @@ h6,
     margin-right: 25px;
     padding: 35px 0;
     font-weight: 500;
-    color: white;
+    color: rgb(255, 255, 255);
     outline: none;
     transition: .5s;
 }
@@ -145,7 +144,7 @@ h6,
 }
 
 .navbar .navbar-brand h1 {
-    color: #FFFFFF;
+    color: #000335;
 }
 
 .navbar .navbar-brand img {
@@ -160,7 +159,7 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar {
         position: relative;
-        background: #FFFFFF;
+        background: #000000;
     }
 
     .navbar .navbar-collapse {
@@ -181,7 +180,7 @@ h6,
     }
 
     .navbar .navbar-brand h1 {
-        color: var(--primary);
+        color: #000335;
     }
 
     .navbar-light .navbar-brand img {
@@ -204,7 +203,7 @@ h6,
     }
 
     .sticky-top.navbar .navbar-brand h1 {
-        color: var(--primary);
+        color: #000335;
     }
 
     .navbar .navbar-nav .nav-item .dropdown-menu {
@@ -225,7 +224,7 @@ h6,
     }
 
     .sticky-top.navbar .btn {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
         background: var(--primary);
         border-color: var(--primary);
     }
