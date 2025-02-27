@@ -11,10 +11,8 @@
     };
     spinner();
     
-    
     // Initiate the wowjs
     new WOW().init();
-
 
     // Sticky Navbar
     $(window).scroll(function () {
@@ -25,24 +23,24 @@
         }
     });
 
-
     // Smooth scrolling on the navbar links
-    $(".navbar-nav a").on('click', function (event) {
+    $(".navbar-nav a").on("click", function (event) {
         if (this.hash !== "") {
             event.preventDefault();
-            
-            $('html, body').animate({
-                scrollTop: $(this.hash).offset().top - 60
-            }, 1500, 'easeInOutExpo');
-            
-            if ($(this).parents('.navbar-nav').length) {
-                $('.navbar-nav .active').removeClass('active');
-                $(this).closest('a').addClass('active');
+            let target = document.querySelector(this.hash);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 60,
+                    behavior: "smooth",
+                });
             }
+
+            // Update active link
+            $(".navbar-nav .active").removeClass("active");
+            $(this).closest("a").addClass("active");
         }
     });
-    
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -51,18 +49,20 @@
             $('.back-to-top').fadeOut('slow');
         }
     });
+
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
         return false;
     });
-
 
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
-
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -71,20 +71,19 @@
         margin: 25,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            992:{
-                items:2
+            992: {
+                items: 2
             }
         }
     });
-    
-})(jQuery);
 
+})(jQuery);
