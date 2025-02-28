@@ -15,12 +15,24 @@
     new WOW().init();
 
     // Sticky Navbar
+    let lastScrollTop = 0;
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
+        let scrollTop = $(this).scrollTop();
+        if (scrollTop > 45) {
             $('.navbar').addClass('sticky-top shadow-sm');
         } else {
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
+
+        // Show navbar when scrolling down on mobile
+        if ($(window).width() < 992) {
+            if (scrollTop > lastScrollTop) {
+                $('.navbar').fadeOut(); // Hide on scroll down
+            } else {
+                $('.navbar').fadeIn(); // Show on scroll up
+            }
+        }
+        lastScrollTop = scrollTop;
     });
 
     // Smooth scrolling on the navbar links
